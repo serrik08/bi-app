@@ -1,0 +1,53 @@
+<ion-header>
+  <app-layout-header title="Login"></app-layout-header>
+</ion-header>
+
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col width-400>
+      <img src="assets/imgs/logo-ahorasoft.png" alt="Ahorasoft logo" />
+    </ion-col>
+  </ion-row>
+  <div class="login-box">
+    <!-- <form (ngSubmit)="loginForm()"> -->
+      <form (ngSubmit)="loginForm()">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item class="form">
+              <ion-input
+                type="text"
+                [(ngModel)]="user.username"
+                name="name"
+                placeholder="{{ 'login.user' | transloco }}"
+                class="label"
+              ></ion-input>
+            </ion-item>
+            <ion-item class="form">
+              <ion-input
+                type="password"
+                [(ngModel)]="user.password"
+                name="password"
+                placeholder="{{ 'login.password' | transloco }}"
+              ></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="signup-col">
+            <ion-button
+              type="submit"
+              class="submit-btn"
+              expand="block"
+              shape="round"
+            >
+              {{ 'buttons.login' | transloco }}
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>

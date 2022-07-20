@@ -1,0 +1,85 @@
+<!-- Generated template for the SampledataDetailComponent component -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> {{ translations.title }} </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-text color="primary" showWhen="ios">Cancel</ion-text>
+        <ion-icon name="close-outline" showWhen="android,windows"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="detail-message" padding>{{ translations.message }}</div>
+  <form class="form-content">
+    <ion-item lines="inset" class="formItem">
+      <ion-label
+        >{{ 'sampledatamanagement.sampledata.name' | transloco }}</ion-label
+      >
+      <ion-input
+        string
+        [(ngModel)]="sampledataReceived.name"
+        name="name"
+      ></ion-input>
+    </ion-item>
+    <ion-item lines="inset" class="formItem">
+      <ion-label
+        >{{ 'sampledatamanagement.sampledata.surname' | transloco }}</ion-label
+      >
+      <ion-input
+        string
+        [(ngModel)]="sampledataReceived.surname"
+        name="surname"
+      ></ion-input>
+    </ion-item>
+    <ion-item lines="inset" class="formItem">
+      <ion-label
+        >{{ 'sampledatamanagement.sampledata.age' | transloco }}</ion-label
+      >
+      <ion-input
+        number
+        [(ngModel)]="sampledataReceived.age"
+        name="age"
+      ></ion-input>
+    </ion-item>
+    <ion-item lines="inset" class="formItem">
+      <ion-label
+        >{{ 'sampledatamanagement.sampledata.mail' | transloco }}</ion-label
+      >
+      <ion-input
+        string
+        [(ngModel)]="sampledataReceived.email"
+        name="mail"
+      ></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-button
+    class="buttonForm"
+    [hidden]="!filterActive"
+    (click)="addOrModify()"
+    expand="block"
+  >
+    {{ 'sampledatamanagement.sampledata.commonbuttons.send' | transloco }}
+  </ion-button>
+  <ion-button
+    class="buttonForm"
+    [hidden]="filterActive"
+    (click)="search()"
+    expand="block"
+  >
+    {{ 'sampledatamanagement.sampledata.commonbuttons.send' | transloco }}
+  </ion-button>
+  <ion-button
+    class="buttonForm"
+    [hidden]="filterActive"
+    (click)="clearSearch()"
+    expand="block"
+  >
+    {{ 'sampledatamanagement.sampledata.operations.filter.clear' | transloco }}
+  </ion-button>
+</ion-footer>
