@@ -61,5 +61,9 @@
     "errorMsg": "Wrong username or password"
   },
   "example": "example",
-  "Home": "Home"
+  "Home": "Home",
+  "Menu": "Menu",
+  "Projects": "Projects",
+  "Charts": "Charts",
+  "KPIs": "KPIs"
 }

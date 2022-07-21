@@ -34,7 +34,15 @@ export class AppComponent {
           route: 'home',
         },
         {
-          title: 'sampledata',
+          title: 'Projects',
+          route: 'projects',
+        },
+        {
+          title: 'Charts',
+          route: 'sampledata',
+        },
+        {
+          title: 'KPIs',
           route: 'sampledata',
         },
       ];

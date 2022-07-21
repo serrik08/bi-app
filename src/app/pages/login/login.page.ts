@@ -22,7 +22,7 @@ export class LoginPageComponent {
     public translocoService: TranslocoService,
     public loginp: LoginService,
   ) {
-    this.user = { username: 'admin', password: 'admin' };
+    this.user = { username: 'admin', password: 'odoo123' };
   }
 
   isAuthenticated() {
@@ -34,23 +34,31 @@ export class LoginPageComponent {
       .login({ username: this.user.username, password: this.user.password })
       .subscribe(
         (res: any) => {
-          // CSRF
           console.log(res);
+          if (!res.body.token) {
+            this.auth.setAuthenticated(false);
+            this.presentAlert();
+            return;
+          }
+          // CSRF 
           if (environment.security === 'csrf') {
-            this.auth.setToken(res.data.users[0].user.session_id);
+            this.auth.setToken(res.body.token);
             this.auth.setAuthenticated(true);
-            this.router.navigate(['home']);
+            this.auth.setUsername(this.user.username);
+            this.router.navigate(['home']);            
           }
           // JWT
           if (environment.security === 'jwt') {
-            this.auth.setToken(res.headers.get('Authorization'));
+            this.auth.setToken(res.body.token);
             this.auth.setAuthenticated(true);
+            this.auth.setUsername(this.user.username);
             this.router.navigate(['home']);
           }
+          console.log(this.auth);
         },
         (err: any) => {
-          this.auth.setAuthenticated(false);
-          this.presentAlert();
+          this.auth.setAuthenticated(false);   
+          this.presentAlert();       
         },
       );
   }

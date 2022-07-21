@@ -23,6 +23,18 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [AuthGuardService],
   },
+  {
+    path: 'sampledata',
+    component: SampledataListComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'sampledata',
+    component: SampledataListComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuardService],
+  },
 ];
 
 @NgModule({
