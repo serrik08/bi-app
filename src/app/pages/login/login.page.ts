@@ -65,12 +65,12 @@ export class LoginPageComponent {
   async presentAlert() {
     const alertTranslations: any = {};
 
-    alertTranslations.header = this.translocoService.translate('alert.title');
+    alertTranslations.header = this.translocoService.translate('alert-login.title');
     alertTranslations.subHeader = this.translocoService.translate(
-      'alert.subtitle',
+      'alert-login.subtitle',
     );
     alertTranslations.dismiss = this.translocoService.translate(
-      'alert.dismiss',
+      'alert-login.dismiss',
     );
 
     const alert = await this.alertCtrl.create({

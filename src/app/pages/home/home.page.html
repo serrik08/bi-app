@@ -14,9 +14,9 @@
       <ion-title class="page-welcome">{{ 'Welcome' | transloco }} {{ user.username }}</ion-title>
     </ion-card-header> 
     <ion-card-content>
-      <ion-item>{{ 'Projects' | transloco}}</ion-item>
-      <ion-item>{{ 'Tasks' | transloco}}</ion-item>
-      <ion-item>{{ 'Employees' | transloco}}</ion-item>
+      <ion-item>{{ 'Projects' | transloco}}<ion-badge color="tertiary" slot="end">{{qtyProjects}}</ion-badge></ion-item>
+      <ion-item>{{ 'Tasks' | transloco}}<ion-badge color="tertiary" slot="end">{{qtyTasks}}</ion-badge></ion-item>
+      <ion-item>{{ 'Employees' | transloco}}<ion-badge color="tertiary" slot="end">{{qtyEmployees}}</ion-badge></ion-item>
       <ion-button color="secondary" expand="full"  (click)="updateForm()">
         {{ 'Update' | transloco}}
         <ion-icon slot="start" name="cloud-done-outline"></ion-icon>

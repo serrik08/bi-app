@@ -17,10 +17,15 @@
     "EN": "English",
     "ES": "Spanish"
   },
-  "alert": {
+  "alert-login": {
     "title": "Error",
-    "subtitle": "Usuario o contraseña erroneo",
-    "dismiss": "cerrar"
+    "subtitle": "Error al actualizar los datos",
+    "dismiss": "Cerrar"
+  },
+  "alert-home": {
+    "title": "Error",
+    "subtitle": "error when updating the data",
+    "dismiss": "Cerrar"
   },
   "sampledatamanagement": {
     "title": "sampledatamanagement Título",

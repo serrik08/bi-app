@@ -2,6 +2,7 @@ import { TranslocoService } from '@ngneat/transloco';
 import { ProjectService } from '../../services/project/project.service';
 import { AuthService } from '../../services/security/auth.service';
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 /**
  * Generated class for the HomePage page.
@@ -17,10 +18,14 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent {
   user: { username: string };
+  qtyProjects : number;
+  qtyTasks : number;
+  qtyEmployees: number;
   constructor(
-    public auth: AuthService, 
-    public translate: TranslocoService,
-    private projectService: ProjectService
+    private alertCtrl: AlertController,
+    private auth: AuthService,
+    private projectService: ProjectService,
+    private translocoService: TranslocoService,
   ) {
     this.user = { username: auth.getUsername() };
   }
@@ -37,10 +42,37 @@ export class HomePageComponent {
         tokenOdoo: '3cc1f007-447c-4721-9cd9-6a0aa6eddc40' })
       .subscribe(
         (res: any) =>{
+          if (!res.projects || !res.tasks || !res.users) {
+            this.presentAlert();
+            return;
+          }
           console.log(res);
+          this.qtyProjects = res.projects;
+          this.qtyTasks = res.tasks;
+          this.qtyEmployees = res.users;
         },
         (err: any) =>{
           console.log(err);
         });
+  }
+
+  async presentAlert() {
+    const alertTranslations: any = {};
+
+    alertTranslations.header = this.translocoService.translate('alert-home.title');
+    alertTranslations.subHeader = this.translocoService.translate(
+      'alert-home.subtitle',
+    );
+    alertTranslations.dismiss = this.translocoService.translate(
+      'alert-home.dismiss',
+    );
+
+    const alert = await this.alertCtrl.create({
+      header: alertTranslations.header,
+      subHeader: alertTranslations.subHeader,
+      buttons: [alertTranslations.dismiss],
+    });
+
+    await alert.present();
   }
 }
