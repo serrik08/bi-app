@@ -1,0 +1,19 @@
+<ion-header>
+  <app-layout-header title="{{ 'Projects' | transloco }}"></app-layout-header>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let p of projects">
+    <ion-item>
+      <ion-label>{{ p.name }}</ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+  
+    <ion-card-content>
+      This is content, without any paragraph or header tags,
+      within an ion-card-content element.
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

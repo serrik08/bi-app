@@ -1,15 +1,9 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { TranslocoService } from '@ngneat/transloco';
 import { ProjectService } from '../../services/project/project.service';
 import { AuthService } from '../../services/security/auth.service';
-import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
-
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'app-page-home',
@@ -22,6 +16,7 @@ export class HomePageComponent {
   qtyTasks : number;
   qtyEmployees: number;
   constructor(
+    private router: Router,
     private alertCtrl: AlertController,
     private auth: AuthService,
     private projectService: ProjectService,
@@ -30,15 +25,14 @@ export class HomePageComponent {
     this.user = { username: auth.getUsername() };
   }
 
-  updateForm() {
+  updateForm(): void{
     this.updateData();
   }
 
-  updateData() {
+  updateData(): void{
     this.projectService
       .updateData({ 
-        username: this.auth.getUsername(), 
-        tokenBi: this.auth.getToken(), 
+        username: this.auth.getUsername(),
         tokenOdoo: '3cc1f007-447c-4721-9cd9-6a0aa6eddc40' })
       .subscribe(
         (res: any) =>{
@@ -53,10 +47,15 @@ export class HomePageComponent {
         },
         (err: any) =>{
           console.log(err);
+          this.presentAlert();
         });
   }
 
-  async presentAlert() {
+  navigateProjectsPage(): void{
+    this.router.navigate(['projects']); 
+  }
+
+  async presentAlert(): Promise<any> {
     const alertTranslations: any = {};
 
     alertTranslations.header = this.translocoService.translate('alert-home.title');

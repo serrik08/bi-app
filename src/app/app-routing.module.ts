@@ -18,8 +18,16 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
-    path: 'sampledata',
-    component: SampledataListComponent,
+    path: 'projects',
+    loadChildren: () => 
+      import('./pages/projects/projects.module').then( m => m.ProjectPageModule),
+    pathMatch: 'full',
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'tasks',
+    loadChildren: () => 
+      import('./pages/tasks/tasks.module').then( m => m.TaskPageModule),
     pathMatch: 'full',
     canActivate: [AuthGuardService],
   },
@@ -35,6 +43,14 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [AuthGuardService],
   },
+  {
+    path: 'sampledata',
+    component: SampledataListComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuardService],
+  },
+  
+
 ];
 
 @NgModule({

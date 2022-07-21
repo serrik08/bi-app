@@ -38,6 +38,10 @@ export class AppComponent {
           route: 'projects',
         },
         {
+          title: 'Tasks',
+          route: 'tasks',
+        },
+        {
           title: 'Charts',
           route: 'sampledata',
         },

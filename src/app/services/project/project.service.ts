@@ -14,22 +14,31 @@ import { options } from 'sw-toolbox';
  */
 @Injectable({ providedIn: 'root' })
 export class ProjectService {
+  private serviceId: number = environment.serviceIdERP;
   constructor(
     public http: HttpClient,
-    public authService: AuthService,
+    public auth: AuthService,
     private bo: BusinessOperatorService,
   ) { }
 
   updateData(projectParams: any): Observable<any> {
-    const headers1= new HttpHeaders({name: 'Authorization', value: projectParams.tokenBi});
+    const headers= new HttpHeaders({name: 'Authorization', value: this.auth.getToken()});
     return this.http.post(
-      this.bo.updateData(), // url
-      // body
+      this.bo.updateData(),
       {
-        serviceId: '1',
+        serviceId: this.serviceId,
         userOdoo: projectParams.username,
         tokenOdoo: projectParams.tokenOdoo
-      }, {headers: headers1}
+      }, {headers: headers}
+    );
+  }
+
+  getProjects(): Observable<any> {
+    const headers= new HttpHeaders({name: 'Authorization', value: this.auth.getToken()});
+    return this.http.post(
+      this.bo.getProjects(),
+      {serviceId: this.serviceId}
+      , {headers: headers}
     );
   }
 }
