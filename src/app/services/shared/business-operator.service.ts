@@ -27,6 +27,13 @@ export class BusinessOperatorService {
   }
 
   /**
+   * @returns The url to the updateProjects service.
+   */
+   updateData() {
+    return this.restPath + 'updatedata';
+  }
+
+  /**
    * @returns The url to the sampledata management service.
    */
   sampledataService() {

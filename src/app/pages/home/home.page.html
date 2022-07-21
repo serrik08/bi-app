@@ -8,19 +8,20 @@
   <app-layout-header title="{{ 'Home' | transloco }}"></app-layout-header>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="div-text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et
-    volutpat leo. Cras volutpat pharetra augue, eu euismod nunc condimentum ut.
-    Donec sodales et elit a dictum. Nulla tellus elit, venenatis non felis at,
-    pulvinar ultricies erat. Cras porta orci massa, eget pretium sapien lobortis
-    ut. Ut facilisis ex at vulputate tincidunt. Proin odio tellus, porttitor eu
-    lectus id, hendrerit porta tortor. Nunc dignissim ipsum libero, quis
-    tincidunt leo posuere et. Phasellus in malesuada lectus, non scelerisque
-    tortor. Donec condimentum ex a tortor interdum, in rhoncus ipsum ultrices.
-    In mollis nec nisl vel iaculis.
-  </div>
-  <div class="DivLogo">
-    <ion-img class="CapLogo" src="assets/imgs/Capgemini.png"></ion-img>
-  </div>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-title class="page-welcome">{{ 'Welcome' | transloco }} {{ user.username }}</ion-title>
+    </ion-card-header> 
+    <ion-card-content>
+      <ion-item>{{ 'Projects' | transloco}}</ion-item>
+      <ion-item>{{ 'Tasks' | transloco}}</ion-item>
+      <ion-item>{{ 'Employees' | transloco}}</ion-item>
+      <ion-button color="secondary" expand="full"  (click)="updateForm()">
+        {{ 'Update' | transloco}}
+        <ion-icon slot="start" name="cloud-done-outline"></ion-icon>
+      </ion-button>
+      <ion-img class="DivLogo" src="assets/imgs/bi-home.png"></ion-img>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

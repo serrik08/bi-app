@@ -4,7 +4,6 @@ import { AlertController } from '@ionic/angular';
 import { TranslocoService } from '@ngneat/transloco';
 import { LoginService } from '../../services/login/login.service';
 import { AuthService } from '../../services/security/auth.service';
-
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -17,10 +16,10 @@ export class LoginPageComponent {
   alermessages: any = {};
   constructor(
     private router: Router,
-    public alertCtrl: AlertController,
-    public auth: AuthService,
-    public translocoService: TranslocoService,
-    public loginp: LoginService,
+    private alertCtrl: AlertController,
+    private auth: AuthService,
+    private translocoService: TranslocoService,
+    private loginp: LoginService,
   ) {
     this.user = { username: 'admin', password: 'odoo123' };
   }
