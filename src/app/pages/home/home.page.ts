@@ -47,6 +47,7 @@ export class HomePageComponent {
         },
         (err: any) =>{
           console.log(err);
+          console.log('lollllll');
           this.presentAlert();
         });
   }

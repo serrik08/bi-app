@@ -78,5 +78,10 @@
   "Welcome": "Bienvenido",
   "Update": "Actualizar",
   "Tasks": "Tareas",
-  "Employees": "Empleados"
+  "Employees": "Empleados",
+  "In Progress": "En Progreso",
+  "To Do": "Por Hacer",
+  "Done": "Hecho",
+  "Canceled": "Cancelado",
+  "View": "Ver"
 }

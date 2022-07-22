@@ -4,15 +4,35 @@
 
 <ion-content>
 
-  <ion-card *ngFor="let p of projects">
-    <ion-item>
+  <ion-card class="oneCardData" *ngFor="let p of projects" >
+    <ion-item color="secondary-rgb">
       <ion-label>{{ p.name }}</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
+      <ion-button (click)="setOpen(true)"  slot="end">{{ 'View' | transloco }}</ion-button>
+      <ion-modal [isOpen]="isModalOpen">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Modal</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="setOpen(false)">Close</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
+              reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui. Eaque,
+              dicta.
+            </p>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
     </ion-item>
   
-    <ion-card-content>
-      This is content, without any paragraph or header tags,
-      within an ion-card-content element.
+    <ion-card-content >
+      <ion-item [color]="colorStage[p.stage_id]" class="stageItem">
+        <ion-label>{{ p.stage_name | transloco }}</ion-label>
+      </ion-item>      
     </ion-card-content>
   </ion-card>
 

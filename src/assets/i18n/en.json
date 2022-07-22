@@ -75,5 +75,10 @@
   "Welcome": "Welcome",
   "Update": "Update",
   "Tasks": "Tasks",
-  "Employees": "Employees"
+  "Employees": "Employees",
+  "In Progress": "In Progress",
+  "To Do": "To Do",
+  "Done": "Done",
+  "Canceled": "Canceled",
+  "View": "View"
 }

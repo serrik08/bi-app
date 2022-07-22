@@ -11,6 +11,13 @@ import { AuthService } from '../../services/security/auth.service';
 })
 export class ProjectPageComponent implements OnInit,OnChanges{
   projects : any;
+  colorStage :any = {
+    1 : 'danger',
+    2 : 'warning',
+    3 : 'success',
+    4 : 'dark'
+  };
+  isModalOpen: boolean = false;
   constructor(
     private auth: AuthService,
     private projectService: ProjectService,
@@ -19,6 +26,8 @@ export class ProjectPageComponent implements OnInit,OnChanges{
 
   ngOnInit(): void {
     console.log("Inicio projects");
+    console.log(this.colorStage[1]);
+    console.log(this.colorStage[2]);
     this.projectService
       .getProjects()
       .subscribe(
@@ -34,6 +43,13 @@ export class ProjectPageComponent implements OnInit,OnChanges{
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log("Chambio projects");
+  }
+
+  // modalGetProject(projectId: number): void {
+  //   console.log("modal ",projectId);
+  // }
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
 
 }
