@@ -11,6 +11,7 @@ import { AuthService } from '../../services/security/auth.service';
 })
 export class ProjectPageComponent implements OnInit,OnChanges{
   projects : any;
+  project: any;
   colorStage :any = {
     1 : 'danger',
     2 : 'warning',
@@ -22,16 +23,18 @@ export class ProjectPageComponent implements OnInit,OnChanges{
     private auth: AuthService,
     private projectService: ProjectService,
     private translocoService: TranslocoService,
-  ) { }
+  ) { 
+    this.project = {name:""}
+  }
 
   ngOnInit(): void {
-    console.log("Inicio projects");
-    console.log(this.colorStage[1]);
-    console.log(this.colorStage[2]);
     this.projectService
       .getProjects()
       .subscribe(
         (res: any) =>{
+          res.forEach(element => {
+            element.description = this.removeHtmlTagFromString(element.description);
+          });
           this.projects = res;
           console.log(res);
         },
@@ -45,11 +48,17 @@ export class ProjectPageComponent implements OnInit,OnChanges{
     console.log("Chambio projects");
   }
 
-  // modalGetProject(projectId: number): void {
-  //   console.log("modal ",projectId);
-  // }
-  setOpen(isOpen: boolean) {
+  setOpen(isOpen: boolean, project: any) {
+    console.log(project);
+    this.project = project;
     this.isModalOpen = isOpen;
+    
+  }  
+
+  removeHtmlTagFromString(paragraph: string) {
+    var temporalDivElement = document.createElement("div");
+    temporalDivElement.innerHTML = paragraph;
+    return temporalDivElement.textContent;
   }
 
 }

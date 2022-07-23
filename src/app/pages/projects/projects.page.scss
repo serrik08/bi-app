@@ -3,8 +3,35 @@
   color: white;
 }
 .oneCardData {
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(253, 233, 213);
+  border: 2px solid grey;
 }
 .stageItem {
   border-radius: 10px;
+  text-align: center;
+}
+.tagPrimary {
+  background-color: #3880ff;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.9em;
+  margin: 2px;
+  display: inline-block;
+  width: auto;
+  height: 2.8em;
+  font-size: 13px;
+}
+.tagSecondary {
+  background-color: #e2a156;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.9em;
+  margin: 2px;
+  display: inline-block;
+  width: auto;
+  height: 2.8em;
+  font-size: 13px;
+}
+.modalBI {
+  background-color: rgb(253, 233, 213);
 }
