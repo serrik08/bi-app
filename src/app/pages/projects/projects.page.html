@@ -16,10 +16,10 @@
   </ion-card>  
 
   <!-- MODAL -->
-  <ion-modal class="modalBI" *ngIf="project" [isOpen]="isModalOpen">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
+  <ion-modal *ngIf="project" [isOpen]="isModalOpen">
+    <ng-template >
+      <ion-header >
+        <ion-toolbar >
           <ion-title>{{ project.name }}</ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="setOpen(false)">{{ 'Close' | transloco }}</ion-button>
