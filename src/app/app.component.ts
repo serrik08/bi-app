@@ -43,7 +43,7 @@ export class AppComponent {
         },
         {
           title: 'Charts',
-          route: 'sampledata',
+          route: 'charts',
         },
         {
           title: 'KPIs',

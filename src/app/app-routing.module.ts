@@ -32,8 +32,16 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
-    path: 'sampledata',
-    component: SampledataListComponent,
+    path: 'charts',
+    loadChildren: () => 
+      import('./pages/charts/charts.module').then( m => m.ChartsPageModule),
+    pathMatch: 'full',
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'chart',
+    loadChildren: () => 
+      import('./pages/chart/chart.modeule').then( m => m.ChartPageModule),
     pathMatch: 'full',
     canActivate: [AuthGuardService],
   },
@@ -42,14 +50,7 @@ const routes: Routes = [
     component: SampledataListComponent,
     pathMatch: 'full',
     canActivate: [AuthGuardService],
-  },
-  {
-    path: 'sampledata',
-    component: SampledataListComponent,
-    pathMatch: 'full',
-    canActivate: [AuthGuardService],
-  },
-  
+  } 
 
 ];
 
