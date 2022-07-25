@@ -3,6 +3,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { NgChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
@@ -38,6 +39,7 @@ import { TranslocoRootModule } from './transloco-root.module';
             multi: true,
         },
         SampledataRestService,
+        NgChartsModule,
     ],
     bootstrap: [AppComponent]
 })
