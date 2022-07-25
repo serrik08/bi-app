@@ -10,7 +10,7 @@ import { SERVER_URL } from '../../../environments/environment';
 export class BusinessOperatorService {
   public serverPath = SERVER_URL;
   public restPath = SERVER_URL + 'api/v1/';
-  constructor() {}
+  constructor() { }
 
   /**
    * @returns The url to the login service.
@@ -29,15 +29,19 @@ export class BusinessOperatorService {
   /**
    * @returns The url to the updateProjects service.
    */
-   updateData() {
+  updateData() {
     return this.restPath + 'updatedata';
   }
 
   /**
    * @returns The url to the updateProjects service.
    */
-   getProjects() {
+  getProjects() {
     return this.restPath + 'getprojects';
+  }
+
+  projectsPerDate() {
+    return this.restPath + 'projectsperdate';
   }
 
   /**

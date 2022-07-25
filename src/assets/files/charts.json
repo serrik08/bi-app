@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Proyectos finalizados",
+        "icon": "analytics-outline"
+    },
+    {
+        "id": 2,
+        "name": "chart2",
+        "icon": "bar-chart-outline"
+    },
+    {
+        "id": 3,
+        "name": "chart3",
+        "icon": "pie-chart-outline"
+    },
+    {
+        "id": 4,
+        "name": "chart1",
+        "icon": "stats-chart-outline"
+    }
+]

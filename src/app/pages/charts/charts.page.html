@@ -10,6 +10,11 @@
         </ion-card-header>
 
         <ion-card-content>
+            <ion-item *ngFor="let chart of jsonChartList" (click)="openPage(chart.id)" [ngClass]="{'ion-activated':chart.id%2===0}">
+                <ion-icon [name]="chart.icon" slot="start"></ion-icon>
+                <ion-label>{{chart.name}}</ion-label>
+            </ion-item>
+<!-- 
             <ion-item (click)="openPage(chartList[0])" class="ion-activated">
                 <ion-icon name="analytics-outline" slot="start"></ion-icon>
                 <ion-label>Chart 1</ion-label>
@@ -28,7 +33,7 @@
             <ion-item>
                 <ion-icon name="stats-chart-outline" slot="start"></ion-icon>
                 <ion-label>Chart 4</ion-label>
-            </ion-item>
+            </ion-item> -->
         </ion-card-content>
     </ion-card>
 </ion-content>
