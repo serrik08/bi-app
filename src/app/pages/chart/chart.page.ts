@@ -12,8 +12,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ChartPageComponent implements OnInit {
   id: string;
-  title:string;
+  title: string;
   data: any;
+  colors: string[] = [
+    'rgba(255, 99, 132, 1)',
+    'rgba(54, 162, 235, 1)',
+    'rgba(255, 206, 86, 1)',
+    'rgba(75, 192, 192, 1)',
+    'rgba(153, 102, 255, 1)',
+    'rgba(255, 159, 64, 1)'
+  ]
   constructor(
     private auth: AuthService,
     private translocoService: TranslocoService,
@@ -23,39 +31,127 @@ export class ChartPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log("id:", this.id)
+    this.title = this.activatedRoute.snapshot.paramMap.get('title');
     this.selectChart();
   }
 
   selectChart(): void {
     switch (this.id) {
       case "1":
-        this.title = "Proyectos finalizados"
-        console.log("select");
-        this.data = this.serviceProjectPerMonth();
+        this.data = this.chartProjectPerMonth();
         break;
       case "2":
+        this.data = this.chartPercentageOfTags();
         break;
       case "3":
+        this.data = this.chartTasksPerEmployee();
+        break;
+      case "4":
+        this.data = this.chartCostPerDate();
         break;
     }
   }
 
-  serviceProjectPerMonth() {
-    console.log("select 2");
+  chartProjectPerMonth() {
     this.chartService
       .projectsPerDate()
       .subscribe(
         (res: any) => {
-          this.generateChartLine(res);
+          this.generateChart(res);
           console.log(res);
         },
         (err: any) => {
           console.log(err);
         }
       );
-
   }
+
+  chartPercentageOfTags() {
+    this.chartService
+      .percentageOfTags()
+      .subscribe(
+        (res: any) => {
+          this.generateChart(res);
+          console.log(res);
+        },
+        (err: any) => {
+          console.log(err);
+        }
+      );
+  }
+
+  chartTasksPerEmployee() {
+    this.chartService
+      .tasksPerEmployee()
+      .subscribe(
+        (res: any) => {
+          res.data = this.addColorOnElements(res.data);
+          this.generateChartMulti(res);
+          console.log(res);
+        },
+        (err: any) => {
+          console.log(err);
+        }
+      );
+  }
+  chartCostPerDate() {
+    this.chartService
+      .costPerDate()
+      .subscribe(
+        (res: any) => {
+          console.log(res);          
+          res.data = this.addColorOnElements(res.data);
+          this.generateChartMulti(res);
+        },
+        (err: any) => {
+          console.log(err);
+        }
+      );
+  }
+
+  generateChart(dto) {
+    const canvas = document.getElementById('myChart');
+    const ctx = (canvas as HTMLCanvasElement).getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: dto.type,
+      data: {
+        labels: dto.labels,
+        datasets: [{
+          label: dto.label,
+          data: dto.data,
+          backgroundColor: this.colors
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+
+  generateChartMulti(dto) {
+    dto.data = this.addColorOnElements(dto.data);
+    const canvas = document.getElementById('myChart');
+    const ctx = (canvas as HTMLCanvasElement).getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: dto.type,
+      data: {
+        labels: dto.labels,
+        datasets: dto.data
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+
   generateChart12() {
     const canvas = document.getElementById('myChart');
     const ctx = (canvas as HTMLCanvasElement).getContext('2d');
@@ -94,7 +190,6 @@ export class ChartPageComponent implements OnInit {
       }
     });
   }
-
   generateChart2() {
     const canvas = document.getElementById('myChart');
     const ctx = (canvas as HTMLCanvasElement).getContext('2d');
@@ -114,60 +209,7 @@ export class ChartPageComponent implements OnInit {
     });
   }
 
-  generateChartLine(dto) {
-    const canvas = document.getElementById('myChart');
-    const ctx = (canvas as HTMLCanvasElement).getContext('2d');
-    const myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        datasets: [{
-          label: dto.label,
-          data: dto.data,
-          backgroundColor: [
-            'rgba(255, 206, 86, 1)'
-          ]
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  }
-  generateChart4() {
-    const canvas = document.getElementById('myChart');
-    const ctx = (canvas as HTMLCanvasElement).getContext('2d');
-    const data = [{ x: 'Jan', net: 100, cogs: 50, gm: 50 }, { x: 'Feb', net: 120, cogs: 55, gm: 75 }];
 
-    const myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Jan', 'Feb'],
-        datasets: [{
-          label: 'Net sales',
-          data: data,
-          parsing: {
-            yAxisKey: 'net'
-          }
-        }, {
-          label: 'Cost of goods sold',
-          data: data,
-          parsing: {
-            yAxisKey: 'cogs'
-          }
-        }, {
-          label: 'Gross margin',
-          data: data,
-          parsing: {
-            yAxisKey: 'gm'
-          }
-        }]
-      }
-    });
-  }
   generateChart5() {
     const canvas = document.getElementById('myChart');
     const ctx = (canvas as HTMLCanvasElement).getContext('2d');
@@ -191,6 +233,13 @@ export class ChartPageComponent implements OnInit {
 
       }
     });
+  }
+
+  addColorOnElements(data) {
+    data.forEach(element => {
+      Object.assign(element, { backgroundColor: this.colors[data.indexOf(element)] })
+    });
+    return data;
   }
 
 

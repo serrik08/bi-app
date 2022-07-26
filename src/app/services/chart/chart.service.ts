@@ -23,10 +23,28 @@ export class ChartService {
     );
   }
 
-  getProjects(): Observable<any> {
+  percentageOfTags(): Observable<any> {
     const headers= new HttpHeaders({name: 'Authorization', value: this.auth.getToken()});
     return this.http.post(
-      this.bo.getProjects(),
+      this.bo.chartpercentoftags(),
+      {serviceId: this.serviceId}
+      , {headers: headers}
+    );
+  }
+
+  tasksPerEmployee(): Observable<any> {
+    const headers= new HttpHeaders({name: 'Authorization', value: this.auth.getToken()});
+    return this.http.post(
+      this.bo.charttasksperemployee(),
+      {serviceId: this.serviceId}
+      , {headers: headers}
+    );
+  }
+
+  costPerDate(): Observable<any> {
+    const headers= new HttpHeaders({name: 'Authorization', value: this.auth.getToken()});
+    return this.http.post(
+      this.bo.chartcostPerDate(),
       {serviceId: this.serviceId}
       , {headers: headers}
     );

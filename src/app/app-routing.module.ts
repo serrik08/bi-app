@@ -39,7 +39,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
-    path: 'chart/:id',
+    path: 'chart/:id/:title',
     loadChildren: () => 
       import('./pages/chart/chart.modeule').then( m => m.ChartPageModule),
     pathMatch: 'full',

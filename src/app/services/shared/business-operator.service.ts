@@ -41,7 +41,19 @@ export class BusinessOperatorService {
   }
 
   projectsPerDate() {
-    return this.restPath + 'projectsperdate';
+    return this.restPath + 'chartprojectsperdate';
+  }
+
+  chartpercentoftags() {
+    return this.restPath + 'chartpercentoftags';
+  }
+
+  charttasksperemployee() {
+    return this.restPath + 'charttasksperemployee';
+  }
+
+  chartcostPerDate() {
+    return this.restPath + 'chartcostperdate';
   }
 
   /**

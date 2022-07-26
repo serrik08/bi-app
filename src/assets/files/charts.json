@@ -6,17 +6,17 @@
     },
     {
         "id": 2,
-        "name": "chart2",
-        "icon": "bar-chart-outline"
-    },
-    {
-        "id": 3,
-        "name": "chart3",
+        "name": "Proyectos por categoria",
         "icon": "pie-chart-outline"
     },
     {
+        "id": 3,
+        "name": "Tareas por trabajador",
+        "icon": "bar-chart-outline"
+    },
+    {
         "id": 4,
-        "name": "chart1",
+        "name": "Costos por mes",
         "icon": "stats-chart-outline"
     }
 ]

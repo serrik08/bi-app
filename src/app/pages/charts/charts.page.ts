@@ -24,8 +24,8 @@ export class ChartsPageComponent {
     });
   }
 
-  openPage(chartId: number) {
-    this.router.navigate(['chart/',chartId]);
+  openPage(chart: any) {
+    this.router.navigate(['chart/',chart.id,chart.name]);
   }
 
 }
