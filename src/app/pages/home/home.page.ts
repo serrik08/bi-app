@@ -56,6 +56,14 @@ export class HomePageComponent {
     this.router.navigate(['projects']); 
   }
 
+  navigateEmployeesPage(): void{
+    this.router.navigate(['employees']); 
+  }
+
+  navigateChartsPage(): void{
+    this.router.navigate(['charts']); 
+  }
+
   async presentAlert(): Promise<any> {
     const alertTranslations: any = {};
 

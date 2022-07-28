@@ -4,17 +4,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslocoModule } from '@ngneat/transloco';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { TaskPageComponent } from './tasks.page';
+import { KpisPageComponent } from './kpis.page';
 import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
     path: '',
-    component: TaskPageComponent,
+    component: KpisPageComponent,
   },
 ];
 @NgModule({
-  declarations: [TaskPageComponent],
+  declarations: [KpisPageComponent],
   imports: [
     CommonModule,
     IonicModule,    
@@ -24,4 +24,4 @@ const routes: Routes = [
     FormsModule,
   ],
 })
-export class TaskPageModule {}
+export class KpisPageModule {}

@@ -56,6 +56,10 @@ export class BusinessOperatorService {
     return this.restPath + 'chartcostperdate';
   }
 
+  getEmployees() {
+    return this.restPath + 'getemployees';
+  }
+
   /**
    * @returns The url to the sampledata management service.
    */

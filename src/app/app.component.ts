@@ -38,8 +38,8 @@ export class AppComponent {
           route: 'projects',
         },
         {
-          title: 'Tasks',
-          route: 'tasks',
+          title: 'Employees',
+          route: 'employees',
         },
         {
           title: 'Charts',
@@ -47,7 +47,7 @@ export class AppComponent {
         },
         {
           title: 'KPIs',
-          route: 'sampledata',
+          route: 'kpis',
         },
       ];
     });

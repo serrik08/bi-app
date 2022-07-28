@@ -51,9 +51,8 @@ export class ProjectPageComponent implements OnInit,OnChanges{
   setOpen(isOpen: boolean, project: any) {
     console.log(project);
     this.project = project;
-    this.isModalOpen = isOpen;
-    
-  }  
+    this.isModalOpen = isOpen;    
+  }
 
   removeHtmlTagFromString(paragraph: string) {
     var temporalDivElement = document.createElement("div");

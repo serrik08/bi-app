@@ -25,9 +25,9 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
-    path: 'tasks',
+    path: 'employees',
     loadChildren: () => 
-      import('./pages/tasks/tasks.module').then( m => m.TaskPageModule),
+      import('./pages/employees/employees.module').then( m => m.EmployeesPageModule),
     pathMatch: 'full',
     canActivate: [AuthGuardService],
   },
@@ -41,7 +41,14 @@ const routes: Routes = [
   {
     path: 'chart/:id/:title',
     loadChildren: () => 
-      import('./pages/chart/chart.modeule').then( m => m.ChartPageModule),
+      import('./pages/chart/chart.module').then( m => m.ChartPageModule),
+    pathMatch: 'full',
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'kpis',
+    loadChildren: () => 
+      import('./pages/kpis/kpis.module').then( m => m.KpisPageModule),
     pathMatch: 'full',
     canActivate: [AuthGuardService],
   },
