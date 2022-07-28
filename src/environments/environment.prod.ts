@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
-  security: 'csrf'
+  security: 'jwt',
+  serviceIdERP: 1
 };
 
-export const SERVER_URL = 'http://localhost:8081/';
+export const SERVER_URL = 'http://localhost:8080/';

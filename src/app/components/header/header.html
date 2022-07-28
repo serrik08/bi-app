@@ -6,6 +6,7 @@
       <ion-menu-button menuToggle="left" *ngIf="isAuthenticated()">
         <ion-icon name="menu" size="large"></ion-icon>
       </ion-menu-button>
+      <ion-back-button *ngIf="title!=='Home'"></ion-back-button>
     </ion-buttons>
 
     <ion-buttons slot="end">

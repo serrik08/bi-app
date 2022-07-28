@@ -34,8 +34,20 @@ export class AppComponent {
           route: 'home',
         },
         {
-          title: 'sampledata',
-          route: 'sampledata',
+          title: 'Projects',
+          route: 'projects',
+        },
+        {
+          title: 'Employees',
+          route: 'employees',
+        },
+        {
+          title: 'Charts',
+          route: 'charts',
+        },
+        {
+          title: 'KPIs',
+          route: 'kpis',
         },
       ];
     });

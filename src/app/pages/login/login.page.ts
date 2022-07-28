@@ -4,7 +4,6 @@ import { AlertController } from '@ionic/angular';
 import { TranslocoService } from '@ngneat/transloco';
 import { LoginService } from '../../services/login/login.service';
 import { AuthService } from '../../services/security/auth.service';
-
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -17,12 +16,12 @@ export class LoginPageComponent {
   alermessages: any = {};
   constructor(
     private router: Router,
-    public alertCtrl: AlertController,
-    public auth: AuthService,
-    public translocoService: TranslocoService,
-    public loginp: LoginService,
+    private alertCtrl: AlertController,
+    private auth: AuthService,
+    private translocoService: TranslocoService,
+    private loginp: LoginService,
   ) {
-    this.user = { username: 'admin', password: 'admin' };
+    this.user = { username: 'admin', password: 'odoo123' };
   }
 
   isAuthenticated() {
@@ -34,23 +33,31 @@ export class LoginPageComponent {
       .login({ username: this.user.username, password: this.user.password })
       .subscribe(
         (res: any) => {
-          // CSRF
           console.log(res);
+          if (!res.body.token) {
+            this.auth.setAuthenticated(false);
+            this.presentAlert();
+            return;
+          }
+          // CSRF 
           if (environment.security === 'csrf') {
-            this.auth.setToken(res.data.users[0].user.session_id);
+            this.auth.setToken(res.body.token);
             this.auth.setAuthenticated(true);
-            this.router.navigate(['home']);
+            this.auth.setUsername(this.user.username);
+            this.router.navigate(['home']);            
           }
           // JWT
           if (environment.security === 'jwt') {
-            this.auth.setToken(res.headers.get('Authorization'));
+            this.auth.setToken(res.body.token);
             this.auth.setAuthenticated(true);
+            this.auth.setUsername(this.user.username);
             this.router.navigate(['home']);
           }
+          console.log(this.auth);
         },
         (err: any) => {
-          this.auth.setAuthenticated(false);
-          this.presentAlert();
+          this.auth.setAuthenticated(false);   
+          this.presentAlert();       
         },
       );
   }
@@ -58,12 +65,12 @@ export class LoginPageComponent {
   async presentAlert() {
     const alertTranslations: any = {};
 
-    alertTranslations.header = this.translocoService.translate('alert.title');
+    alertTranslations.header = this.translocoService.translate('alert-login.title');
     alertTranslations.subHeader = this.translocoService.translate(
-      'alert.subtitle',
+      'alert-login.subtitle',
     );
     alertTranslations.dismiss = this.translocoService.translate(
-      'alert.dismiss',
+      'alert-login.dismiss',
     );
 
     const alert = await this.alertCtrl.create({

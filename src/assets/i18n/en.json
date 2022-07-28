@@ -14,9 +14,14 @@
     "title": "Ionic",
     "error": "LOGIN ERROR"
   },
-  "alert": {
+  "alert-login": {
     "title": "Error",
     "subtitle": "Wrong User and/or password",
+    "dismiss": "Close"
+  },
+  "alert-home": {
+    "title": "Error",
+    "subtitle": "Error when updating the data",
     "dismiss": "Close"
   },
   "sampledatamanagement": {
@@ -61,5 +66,20 @@
     "errorMsg": "Wrong username or password"
   },
   "example": "example",
-  "Home": "Home"
+  "Home": "Home",
+  "Menu": "Menu",
+  "Projects": "Projects",
+  "Project": "Project",
+  "Charts": "Charts",
+  "KPIs": "KPIs",
+  "Welcome": "Welcome",
+  "Update": "Update",
+  "Tasks": "Tasks",
+  "Employees": "Employees",
+  "In Progress": "In Progress",
+  "To Do": "To Do",
+  "Done": "Done",
+  "Canceled": "Canceled",
+  "View": "View",
+  "Close":"Close"
 }

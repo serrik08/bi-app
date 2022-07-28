@@ -1,26 +1,23 @@
-<!--
-  Generated template for the WelcomePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <app-layout-header title="Home"></app-layout-header>
+  <app-layout-header title="{{ 'Home' | transloco }}"></app-layout-header>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="div-text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et
-    volutpat leo. Cras volutpat pharetra augue, eu euismod nunc condimentum ut.
-    Donec sodales et elit a dictum. Nulla tellus elit, venenatis non felis at,
-    pulvinar ultricies erat. Cras porta orci massa, eget pretium sapien lobortis
-    ut. Ut facilisis ex at vulputate tincidunt. Proin odio tellus, porttitor eu
-    lectus id, hendrerit porta tortor. Nunc dignissim ipsum libero, quis
-    tincidunt leo posuere et. Phasellus in malesuada lectus, non scelerisque
-    tortor. Donec condimentum ex a tortor interdum, in rhoncus ipsum ultrices.
-    In mollis nec nisl vel iaculis.
-  </div>
-  <div class="DivLogo">
-    <ion-img class="CapLogo" src="assets/imgs/Capgemini.png"></ion-img>
-  </div>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-title class="page-welcome">{{ 'Welcome' | transloco }} {{ user.username }}</ion-title>
+    </ion-card-header> 
+    <ion-card-content>
+      <ion-item button (click)="navigateProjectsPage()">{{ 'Projects' | transloco}}<ion-icon name="newspaper-outline" slot="start"></ion-icon><ion-badge color="tertiary" slot="end">{{qtyProjects}}</ion-badge></ion-item>
+      <ion-item >{{ 'Tasks' | transloco}}<ion-badge color="tertiary" slot="end">{{qtyTasks}}</ion-badge><ion-icon name="hammer-outline" slot="start"></ion-icon></ion-item>
+      <ion-item button (click)="navigateEmployeesPage()">{{ 'Employees' | transloco}}<ion-icon name="people-outline" slot="start"></ion-icon><ion-badge color="tertiary" slot="end">{{qtyEmployees}}</ion-badge></ion-item>
+      <ion-item button (click)="navigateChartsPage()">{{ 'Charts' | transloco}}<ion-icon name="pie-chart-outline" slot="start"></ion-icon></ion-item>
+      <ion-item button (click)="navigateKpisPage()">Kpis<ion-icon name="flame" slot="start"></ion-icon></ion-item>
+      <ion-button color="secondary" expand="full"  (click)="updateForm()">
+        {{ 'Update' | transloco}}
+        <ion-icon slot="start" name="cloud-done-outline"></ion-icon>
+      </ion-button>
+      <ion-img class="DivLogo" src="assets/imgs/bi-home.png"></ion-img>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

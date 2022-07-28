@@ -4,10 +4,11 @@
 
 export const environment = {
   production: false,
-  security: 'csrf'
+  security: 'jwt',
+  serviceIdERP: 1
 };
 
-export const SERVER_URL = 'http://localhost:8081/';
+export const SERVER_URL = 'http://localhost:8080/';
 
 /*
  * For easier debugging in development mode, you can import the following file

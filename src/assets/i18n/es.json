@@ -17,10 +17,15 @@
     "EN": "English",
     "ES": "Spanish"
   },
-  "alert": {
+  "alert-login": {
     "title": "Error",
-    "subtitle": "Usuario o contraseña erroneo",
-    "dismiss": "cerrar"
+    "subtitle": "Error al actualizar los datos",
+    "dismiss": "Cerrar"
+  },
+  "alert-home": {
+    "title": "Error",
+    "subtitle": "error when updating the data",
+    "dismiss": "Cerrar"
   },
   "sampledatamanagement": {
     "title": "sampledatamanagement Título",
@@ -64,5 +69,20 @@
     "errorMsg": "Usuario o contraseña erroneos"
   },
   "example": "ejemplo",
-  "Home": "Principal"
+  "Home": "Inicio",
+  "Menu": "Menú",
+  "Projects": "Proyectos",
+  "Project": "Proyecto",
+  "Charts": "Gráficos",
+  "KPIs": "KPIs",
+  "Welcome": "Bienvenido",
+  "Update": "Actualizar",
+  "Tasks": "Tareas",
+  "Employees": "Personal",
+  "In Progress": "En Progreso",
+  "To Do": "Por Hacer",
+  "Done": "Hecho",
+  "Canceled": "Cancelado",
+  "View": "Ver",
+  "Close": "Cerrar"
 }

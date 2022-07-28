@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Proyectos finalizados",
+        "icon": "analytics-outline"
+    },
+    {
+        "id": 2,
+        "name": "Proyectos por categoria",
+        "icon": "pie-chart-outline"
+    },
+    {
+        "id": 3,
+        "name": "Tareas por trabajador",
+        "icon": "bar-chart-outline"
+    },
+    {
+        "id": 4,
+        "name": "Costos por mes",
+        "icon": "stats-chart-outline"
+    }
+]

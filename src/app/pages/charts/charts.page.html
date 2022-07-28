@@ -1,0 +1,20 @@
+<ion-header>
+    <app-layout-header title="{{ 'Charts' | transloco }}"></app-layout-header>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        
+        <ion-card-header>
+            <ion-card-title>{{ 'Charts' | transloco }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-item *ngFor="let chart of jsonChartList" (click)="openPage(chart)" [ngClass]="{'ion-activated':chart.id%2===0}">
+                <ion-icon [name]="chart.icon" slot="start"></ion-icon>
+                <ion-label>{{chart.name}}</ion-label>
+            </ion-item>
+        </ion-card-content>
+
+    </ion-card>
+</ion-content>
