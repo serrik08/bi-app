@@ -21,10 +21,10 @@ export class KpiService {
     private bo: BusinessOperatorService,
   ) { }
 
-  getEmployees(): Observable<any> {
+  getKpiErp(): Observable<any> {
     const headers= new HttpHeaders({name: 'Authorization', value: this.auth.getToken()});
     return this.http.post(
-      this.bo.getEmployees(),
+      this.bo.getKpiErp(),
       {serviceId: this.serviceId}
       , {headers: headers}
     );

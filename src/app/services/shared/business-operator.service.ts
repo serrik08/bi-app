@@ -59,7 +59,11 @@ export class BusinessOperatorService {
   getEmployees() {
     return this.restPath + 'getemployees';
   }
-
+  
+  getKpiErp() {
+    return this.restPath + 'getkpierp';
+  }
+  
   /**
    * @returns The url to the sampledata management service.
    */

@@ -64,6 +64,10 @@ export class HomePageComponent {
     this.router.navigate(['charts']); 
   }
 
+  navigateKpisPage(): void{
+    this.router.navigate(['kpis']); 
+  }
+
   async presentAlert(): Promise<any> {
     const alertTranslations: any = {};
 
