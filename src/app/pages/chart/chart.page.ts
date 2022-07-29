@@ -3,7 +3,7 @@ import { TranslocoService } from '@ngneat/transloco';
 import { AuthService } from '../../services/security/auth.service';
 import { ChartService } from '../../services/chart/chart.service';
 import { Chart } from 'chart.js';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-chart',
@@ -27,6 +27,7 @@ export class ChartPageComponent implements OnInit {
     private translocoService: TranslocoService,
     private activatedRoute: ActivatedRoute,
     private chartService: ChartService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -62,6 +63,9 @@ export class ChartPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
+          if (err.status = 403) {
+            this.logout();
+          }
         }
       );
   }
@@ -76,6 +80,9 @@ export class ChartPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
+          if (err.status = 403) {
+            this.logout();
+          }
         }
       );
   }
@@ -91,6 +98,9 @@ export class ChartPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
+          if (err.status = 403) {
+            this.logout();
+          }
         }
       );
   }
@@ -105,6 +115,9 @@ export class ChartPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
+          if (err.status = 403) {
+            this.logout();
+          }
         }
       );
   }
@@ -242,5 +255,9 @@ export class ChartPageComponent implements OnInit {
     return data;
   }
 
-
+  logout(): void {
+    this.auth.setAuthenticated(false);
+    this.auth.setToken('');
+    this.router.navigate(['']);
+  }
 }

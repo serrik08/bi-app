@@ -1,22 +1,22 @@
 [
     {
         "id": 1,
-        "name": "Proyectos finalizados",
+        "name": "Completed Projects",
         "icon": "analytics-outline"
     },
     {
         "id": 2,
-        "name": "Proyectos por categoria",
+        "name": "Projects by category",
         "icon": "pie-chart-outline"
     },
     {
         "id": 3,
-        "name": "Tareas por trabajador",
+        "name": "Tasks per worker",
         "icon": "bar-chart-outline"
     },
     {
         "id": 4,
-        "name": "Costos por mes",
+        "name": "Cost per month",
         "icon": "stats-chart-outline"
     }
 ]

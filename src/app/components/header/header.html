@@ -6,7 +6,9 @@
       <ion-menu-button menuToggle="left" *ngIf="isAuthenticated()">
         <ion-icon name="menu" size="large"></ion-icon>
       </ion-menu-button>
-      <ion-back-button *ngIf="title!=='Home'"></ion-back-button>
+      <ion-back-button *ngIf="title!=='Home'"        
+        text="">
+      </ion-back-button>
     </ion-buttons>
 
     <ion-buttons slot="end">
@@ -16,12 +18,7 @@
     </ion-buttons>
 
     <ion-buttons slot="end">
-      <ion-button
-        id="logoutbutton"
-        *ngIf="isAuthenticated()"
-        fill="clear"
-        (click)="logout()"
-      >
+      <ion-button id="logoutbutton" *ngIf="isAuthenticated()" fill="clear" (click)="logout()">
         <ion-icon name="exit"></ion-icon>
       </ion-button>
     </ion-buttons>

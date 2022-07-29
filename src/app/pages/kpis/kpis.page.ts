@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
 import { KpiService } from '../../services/kpi/kpi.service';
 import { AuthService } from '../../services/security/auth.service';
@@ -28,6 +29,7 @@ export class KpisPageComponent implements OnInit {
     private auth: AuthService,
     private kpiService: KpiService,
     private translocoService: TranslocoService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +43,9 @@ export class KpisPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
+          if (err.status = 403) {
+            this.logout();
+          }
         }
       );
   }
@@ -62,6 +67,12 @@ export class KpisPageComponent implements OnInit {
     days = ((month) * 30) + day;
     this.currentQuarterPercent.percent = (((days * 100) /90)/100).toFixed(2);
     console.log('current percent',days,this.currentQuarterPercent);
+  }
+
+  logout(): void {
+    this.auth.setAuthenticated(false);
+    this.auth.setToken('');
+    this.router.navigate(['']);
   }
 
 }

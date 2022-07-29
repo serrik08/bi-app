@@ -84,5 +84,33 @@
   "Done": "Hecho",
   "Canceled": "Cancelado",
   "View": "Ver",
-  "Close": "Cerrar"
+  "Close": "Cerrar",
+  "Back": "Atras",
+  "kpi": {
+    "Retrospective Metrics": "Métricas retrospectivas",
+    "Diagnostic Metrics": "Métricas de diagnóstico"
+  },
+  "project": {
+    "stage": "Estado",
+    "enddate": "Fecha final",
+    "projectmanager": "Responsable de proyecto",
+    "tag": "Categoria",
+    "tasks": "Tareas",
+    "estimatedcost": "Costo estimado",
+    "finalcost": "Costo final",
+    "planneddate": "Fecha estimada",
+    "startdate": "Fecha de inicio",
+    "timespent": "Tiempo empleado",
+    "plannedtime": "Tiempo planificada",
+    "timeremaining": "Tiempo restante"
+  },
+  "Completed Projects": "Proyectos finalizados",
+  "Projects by category": "Proyectos por categoria",
+  "Tasks per worker": "Tareas por trabajador",
+  "Cost per month": "Costos por mes",
+  "Quarter": "Trimestre",
+  "Current Quarter": "Trimestre actual",
+  "General kpis": "KPIs generales",
+  "Kpi Total Proyectos": "KPI total proyectos por trimestre",
+  "Kpi Total Tareas": "KPI total tareas por trimestre"
 }

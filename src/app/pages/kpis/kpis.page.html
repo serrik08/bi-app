@@ -6,32 +6,32 @@
 
     <ion-card-title>
         <ion-item color="secondary-rgb">
-            <ion-label>General KPIs</ion-label>
+            <ion-label>{{'General kpis'|transloco}}</ion-label>
         </ion-item>
         <div class="oneCardData card">
             <ion-item >
-                <ion-label>Current Quarter</ion-label>
+                <ion-label>{{'Current Quarter'|transloco}}</ion-label>
             </ion-item>
             <ion-item>
                 <ion-progress-bar class="ion-bar" [color]="colorStage[currentQuarterPercent.colorStage]" [value]="currentQuarterPercent.percent" >
                 </ion-progress-bar>
-                <ion-label slot="end">{{currentQuarterPercent.percent}}%</ion-label>
+                <ion-label slot="end">{{currentQuarterPercent.percent*100}}%</ion-label>
             </ion-item>
         </div>
     </ion-card-title>
 
     <ion-card class="oneCardData card" *ngFor="let k of listKpi">
         <ion-item color="secondary-rgb">
-            <ion-label>{{k.title}}</ion-label>
+            <ion-label>{{k.title | transloco}}</ion-label>
         </ion-item>
         <ion-card-content>
             <ion-item >
-                <ion-label>Quarter {{k.pastQuarter.quarter}}</ion-label>
+                <ion-label>{{'Quarter'|transloco}} {{k.pastQuarter.quarter}}</ion-label>
                 <ion-badge color="tertiary" slot="end">{{k.pastQuarter.qty}}</ion-badge>
                 <!-- <ion-label slot="end">{{k.pastQuarter.qty}}</ion-label> -->
             </ion-item>
             <ion-item >
-                <ion-label>Quarter {{k.currentQuarter.quarter}}</ion-label>
+                <ion-label>{{'Quarter'|transloco}} {{k.currentQuarter.quarter}}</ion-label>
                 <ion-badge color="tertiary" slot="end">{{k.currentQuarter.qty}}</ion-badge>
                 <!-- <ion-label slot="end">{{k.currentQuarter.qty}}</ion-label> -->
             </ion-item>

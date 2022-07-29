@@ -12,7 +12,7 @@
         <ion-card-content>
             <ion-item *ngFor="let chart of jsonChartList" (click)="openPage(chart)" [ngClass]="{'ion-activated':chart.id%2===0}">
                 <ion-icon [name]="chart.icon" slot="start"></ion-icon>
-                <ion-label>{{chart.name}}</ion-label>
+                <ion-label>{{chart.name | transloco}}</ion-label>
             </ion-item>
         </ion-card-content>
 

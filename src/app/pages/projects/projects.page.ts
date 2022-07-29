@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
 import { ProjectService } from '../../services/project/project.service';
 import { AuthService } from '../../services/security/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class ProjectPageComponent implements OnInit,OnChanges{
     private auth: AuthService,
     private projectService: ProjectService,
     private translocoService: TranslocoService,
+    private router: Router,
   ) { 
     this.project = {name:""}
   }
@@ -40,6 +42,9 @@ export class ProjectPageComponent implements OnInit,OnChanges{
         },
         (err: any) => {
           console.log(err);
+          if (err.status = 403) {
+            this.logout();
+          }
         }
       );
   }
@@ -58,6 +63,12 @@ export class ProjectPageComponent implements OnInit,OnChanges{
     var temporalDivElement = document.createElement("div");
     temporalDivElement.innerHTML = paragraph;
     return temporalDivElement.textContent;
+  }
+
+  logout(): void {
+    this.auth.setAuthenticated(false);
+    this.auth.setToken('');
+    this.router.navigate(['']);
   }
 
 }

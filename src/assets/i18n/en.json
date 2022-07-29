@@ -81,5 +81,33 @@
   "Done": "Done",
   "Canceled": "Canceled",
   "View": "View",
-  "Close":"Close"
+  "Close": "Close",
+  "Back": "Back",
+  "kpi": {
+    "Retrospective Metrics": "Retrospective Metrics",
+    "Diagnostic Metrics": "Diagnostic Metrics"
+  },
+  "project": {
+    "stage": "Stage",
+    "enddate": "End date",
+    "projectmanager": "Project manager",
+    "tag": "Tag",
+    "tasks": "Tasks",
+    "estimatedcost": "Estimated cost",
+    "finalcost": "Final cost",
+    "startdate": "Start date",
+    "planneddate": "Planned date",
+    "plannedtime": "Planned time",
+    "timespent": "Time spent",
+    "timeremaining": "Time remaining"
+  },
+  "Completed Projects": "Completed Projects",
+  "Projects by category": "Projects by category",
+  "Tasks per worker": "Tasks per worker",
+  "Cost per month": "Cost per month",
+  "Quarter": "Quarter",
+  "Current Quarter": "Current Quarter",
+  "General kpis": "General KPIs",
+  "Kpi Total Proyectos": "KPI total projects per quarter",
+  "Kpi Total Tareas": "KPI total tasks per quarter"
 }

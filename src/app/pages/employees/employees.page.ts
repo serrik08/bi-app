@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
 import { EmployeeService } from '../../services/employee/employee.service';
 import { AuthService } from '../../services/security/auth.service';
@@ -24,6 +25,7 @@ export class EmployeesPageComponent implements OnInit {
     private auth: AuthService,
     private employeeService: EmployeeService,
     private translocoService: TranslocoService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +38,9 @@ export class EmployeesPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
+          if (err.status = 403) {
+            this.logout();
+          }
         }
 
       );
@@ -45,6 +50,12 @@ export class EmployeesPageComponent implements OnInit {
     console.log(employee);
     this.employee = employee;
     this.isModalOpen = isOpen;    
+  }
+
+  logout(): void {
+    this.auth.setAuthenticated(false);
+    this.auth.setToken('');
+    this.router.navigate(['']);
   }
 
 }

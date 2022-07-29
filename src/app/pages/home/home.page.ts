@@ -47,7 +47,9 @@ export class HomePageComponent {
         },
         (err: any) =>{
           console.log(err);
-          console.log('lollllll');
+          if (err.status = 403) {
+            this.logout();
+          }
           this.presentAlert();
         });
   }
@@ -86,5 +88,11 @@ export class HomePageComponent {
     });
 
     await alert.present();
+  }
+
+  logout(): void {
+    this.auth.setAuthenticated(false);
+    this.auth.setToken('');
+    this.router.navigate(['']);
   }
 }
