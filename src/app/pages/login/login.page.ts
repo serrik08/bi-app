@@ -21,7 +21,7 @@ export class LoginPageComponent {
     private translocoService: TranslocoService,
     private loginp: LoginService,
   ) {
-    this.user = { username: 'admin', password: 'odoo123' };
+    this.user = { username: 'gerente@ahorasoft.com', password: 'odoo123' };
   }
 
   isAuthenticated() {

@@ -5,7 +5,7 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-title class="page-welcome">{{ 'Welcome' | transloco }} {{ user.username }}</ion-title>
+      <ion-title class="ion-text-wrap" >{{ 'Welcome' | transloco }} {{ user.username }}</ion-title>
     </ion-card-header> 
     <ion-card-content>
       <ion-item button (click)="navigateProjectsPage()">{{ 'Projects' | transloco}}<ion-icon name="newspaper-outline" slot="start"></ion-icon><ion-badge color="tertiary" slot="end">{{qtyProjects}}</ion-badge></ion-item>
