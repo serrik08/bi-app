@@ -13,6 +13,7 @@
       <ion-item button (click)="navigateEmployeesPage()">{{ 'Employees' | transloco}}<ion-icon name="people-outline" slot="start"></ion-icon><ion-badge color="tertiary" slot="end">{{qtyEmployees}}</ion-badge></ion-item>
       <ion-item button (click)="navigateChartsPage()">{{ 'Charts' | transloco}}<ion-icon name="pie-chart-outline" slot="start"></ion-icon></ion-item>
       <ion-item button (click)="navigateKpisPage()">KPIs<ion-icon name="flame" slot="start"></ion-icon></ion-item>
+      <!-- <ion-label>{{ apiKey }}</ion-label> -->
       <ion-button color="secondary" expand="full"  (click)="updateForm()">
         {{ 'Update' | transloco}}
         <ion-icon slot="start" name="cloud-done-outline"></ion-icon>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController,ToastController } from '@ionic/angular';
 import { TranslocoService } from '@ngneat/transloco';
 import { ProjectService } from '../../services/project/project.service';
 import { AuthService } from '../../services/security/auth.service';
@@ -15,14 +15,17 @@ export class HomePageComponent {
   qtyProjects: number;
   qtyTasks: number;
   qtyEmployees: number;
+  apiKey: string;
   constructor(
     private router: Router,
     private alertCtrl: AlertController,
     private auth: AuthService,
     private projectService: ProjectService,
     private translocoService: TranslocoService,
+    private toastController: ToastController,
   ) {
     this.user = { username: auth.getUsername() };
+    this.apiKey = localStorage.getItem('apiKey');
   }
 
   updateForm(): void {
@@ -30,10 +33,11 @@ export class HomePageComponent {
   }
 
   updateData(): void {
+    console.log(this.apiKey);
     this.projectService
       .updateData({
         username: this.auth.getUsername(),
-        tokenOdoo: '3cc1f007-447c-4721-9cd9-6a0aa6eddc40'
+        tokenOdoo: this.apiKey
       })
       .subscribe(
         (res: any) => {
@@ -45,9 +49,11 @@ export class HomePageComponent {
           this.qtyProjects = res.projects;
           this.qtyTasks = res.tasks;
           this.qtyEmployees = res.users;
+          this.presentToastSuccess();
         },
         (err: any) => {
           console.log(err);
+          console.log(err.status);
           if (err.status = 401) {
             this.presentAlertUnauthorized();
             this.logout();
@@ -98,6 +104,18 @@ export class HomePageComponent {
       buttons: [alertTranslations.dismiss],
     });
     await alert.present();
+  }
+
+  async presentToastSuccess() {
+    const toast = await this.toastController.create({
+      //header: 'Toast header',
+      message: this.translocoService.translate('toast.update-data'),
+      duration: 500,
+      color: "green",
+      icon: 'checkmark-circle',
+      position: 'bottom'
+    });
+    toast.present();
   }
 
   logout(): void {

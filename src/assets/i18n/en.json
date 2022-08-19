@@ -8,7 +8,9 @@
     "Modify": "Modify",
     "Inspect": "Inspect",
     "Delete": "Delete",
-    "Filter": "Filter"
+    "Filter": "Filter",
+    "ok":"Ok",
+    "cancel":"Cancel"
   },
   "header": {
     "title": "Ionic",
@@ -16,13 +18,17 @@
   },
   "alert-error": {
     "title": "Error",
-    "dismiss": "Close"
+    "dismiss": "Close",
+    "ERR1005": "Unauthorized User, Incorrect Api Token"
   },
   "alert-login": {
     "title": "Error",
     "subtitle": "Wrong User and/or password",
     "dismiss": "Close",
-    "success": "Successful access"
+    "success": "Successful access",
+    "set-api-key":"Set Api Token",
+    "set-api-key-header":"Please enter your Api Token",
+    "parameters-error": "Username, Password and Api Token are required."
   },
   "alert-login-attempts": {
     "title": "Error",
@@ -38,6 +44,10 @@
     "title": "Error",
     "subtitle": "Unauthorized, session expired",
     "dismiss": "Close"
+  },
+  "toast": {
+    "update-data":"Data updated correctly",
+    "attempt":"Attempt "
   },
   "sampledatamanagement": {
     "title": "sampledatamanagement Title",

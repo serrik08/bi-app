@@ -266,7 +266,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^13.1.0", "@angular/core@>=11.0.0", "@angular/core@>=12.0.0", "@angular/core@13.3.11":
+"@angular/core@*", "@angular/core@^13.1.0", "@angular/core@>=11.0.0", "@angular/core@>=12.0.0", "@angular/core@13.3.11":
   "integrity" "sha512-9BmE2CxyV0g+AkBeuc8IwjSOiJ8Y+kptXnqD/J8EAFT3B0/fLGVnjFdZC6Sev9L0SNZb6qdzebpfIOLqbUjReQ=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-13.3.11.tgz"
   "version" "13.3.11"
@@ -1427,7 +1427,15 @@
     "ionicons" "^6.0.2"
     "tslib" "^2.1.0"
 
-"@ionic/storage@3.0.6":
+"@ionic/storage-angular@^3.0.6":
+  "integrity" "sha512-ZXlIFWGU27aCxVFgZb0KFJFtWwnn6+HK6v0rMGzjN8f7oV2ewXaQ2dl1gTw/A8YoozTVPOFxwfFHCjhWLFR1Fw=="
+  "resolved" "https://registry.npmjs.org/@ionic/storage-angular/-/storage-angular-3.0.6.tgz"
+  "version" "3.0.6"
+  dependencies:
+    "@ionic/storage" "^3.0.4"
+    "tslib" "^1.10.0"
+
+"@ionic/storage@^3.0.4", "@ionic/storage@^3.0.6":
   "integrity" "sha512-sw+zSJINIpbQCGZR9mEtb9N0WmZLuhcMVqOZJBqLuDACAMdXqG39zmp5nSVqhGI1/9X3nd0K5gVn6icyVfUnUg=="
   "resolved" "https://registry.npmjs.org/@ionic/storage/-/storage-3.0.6.tgz"
   "version" "3.0.6"
@@ -4969,6 +4977,11 @@
     "inherits" "^2.0.1"
     "readable-stream" "^3.1.1"
 
+"http_status_codes@^2.0.5":
+  "integrity" "sha512-V6B3crcYELlBYhZIjOdnO9YO0OFZ1ARvsYNQPP9z73FVBDOuRaYlcE97/80OwiSzCryNyvMXTIihTS/0xnWUQw=="
+  "resolved" "https://registry.npmjs.org/http_status_codes/-/http_status_codes-2.0.5.tgz"
+  "version" "2.0.5"
+
 "http-cache-semantics@^4.1.0":
   "integrity" "sha512-carPklcUh7ROWRK7Cv27RPtdhYhUsela/ue5/jKzjegVvXDqM2ILE9Q2BGn9JZJh1g87cp56su/FgQSzcWS8cQ=="
   "resolved" "https://registry.npmjs.org/http-cache-semantics/-/http-cache-semantics-4.1.0.tgz"
@@ -7722,7 +7735,7 @@
   "resolved" "https://registry.npmjs.org/rxjs-for-await/-/rxjs-for-await-0.0.2.tgz"
   "version" "0.0.2"
 
-"rxjs@^6.0.0", "rxjs@^6.3.3", "rxjs@^6.5.3", "rxjs@^6.5.3 || ^7.4.0", "rxjs@^6.5.4", "rxjs@>=6.0.0", "rxjs@>=6.6.0", "rxjs@6.6.7":
+"rxjs@*", "rxjs@^6.0.0", "rxjs@^6.3.3", "rxjs@^6.5.3", "rxjs@^6.5.3 || ^7.4.0", "rxjs@^6.5.4", "rxjs@>=6.0.0", "rxjs@>=6.6.0", "rxjs@6.6.7":
   "integrity" "sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ=="
   "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-6.6.7.tgz"
   "version" "6.6.7"
@@ -8641,6 +8654,11 @@
     "json5" "^1.0.1"
     "minimist" "^1.2.6"
     "strip-bom" "^3.0.0"
+
+"tslib@^1.10.0":
+  "integrity" "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
+  "version" "1.14.1"
 
 "tslib@^1.8.1":
   "integrity" "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="

@@ -39,7 +39,8 @@ export class LoginService {
         data: {
           serviceId: '1',
           user: loginParams.username,
-          password: loginParams.password
+          password: loginParams.password,
+          apiToken: loginParams.apiToken
         }
       },
       options,

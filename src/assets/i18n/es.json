@@ -9,7 +9,9 @@
     "Inspect": "Inspeccionar",
     "Delete": "Borrar",
     "Filter": "Busqueda",
-    "Language": "Idioma"
+    "Language": "Idioma",
+    "ok":"Aceptar",
+    "cancel":"Cancelar"
   },
   "header": {
     "title": "devon4ng",
@@ -19,13 +21,17 @@
   },
   "alert-error": {
     "title": "Error",
-    "dismiss": "Cerrar"
+    "dismiss": "Cerrar",
+    "ERR1005":"Usuario no autorizado, Api Token incorrecto"
   },
   "alert-login": {
     "title": "Error",
     "subtitle": "Usuario y/o contraseña incorrectos",
     "dismiss": "Cerrar",
-    "success": "Acceso exitoso"
+    "success": "Acceso exitoso",
+    "set-api-key":"Establecer Token Api",
+    "set-api-key-header":"Por favor, introduzca su Token Api",
+    "parameters-error": "Usuario, Contraseña and Token Api son requeridos."
   },
   "alert-login-attempts": {
     "title": "Error",
@@ -41,6 +47,10 @@
     "title": "Error",
     "subtitle": "No autorizado, sesión expirada",
     "dismiss": "Cerrar"
+  },
+  "toast": {
+    "update-data":"Datos actualizados correctamente",
+    "attempt": "Intento "
   },
   "sampledatamanagement": {
     "title": "sampledatamanagement Título",

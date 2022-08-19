@@ -23,7 +23,7 @@ export class ProjectService {
 
   updateData(projectParams: any): Observable<any> {
     const headers= new HttpHeaders({name: 'Authorization', value: this.auth.getToken()});
-    return this.http.post(
+    let res = this.http.post(
       this.bo.updateData(),
       {
         serviceId: this.serviceId,
@@ -31,6 +31,9 @@ export class ProjectService {
         tokenOdoo: projectParams.tokenOdoo
       }, {headers: headers}
     );
+    console.log("LOCURA"); 
+    console.log(res);
+    return res;
   }
 
   getProjects(): Observable<any> {

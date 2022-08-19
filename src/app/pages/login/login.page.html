@@ -8,27 +8,25 @@
       <img src="assets/imgs/logo-ahorasoft.png" alt="Ahorasoft logo" />
     </ion-col>
   </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button size="small" [color]="apiKey===''?'warning':'success'" (click)="presentAlertSetApiKey()" >{{'alert-login.set-api-key' | transloco}}</ion-button>
+    </ion-col>
+
+  </ion-row>
+
   <div class="login-box">
-      <form (ngSubmit)="loginForm()">
+    <form (ngSubmit)="loginForm()">
       <ion-row>
         <ion-col>
           <ion-list inset>
             <ion-item class="form">
-              <ion-input
-                type="text"
-                [(ngModel)]="user.username"
-                name="name"
-                placeholder="{{ 'login.user' | transloco }}"
-                class="label"
-              ></ion-input>
+              <ion-input type="text" [(ngModel)]="user.username" name="name"
+                placeholder="{{ 'login.user' | transloco }}" class="label" required="true"></ion-input>
             </ion-item>
             <ion-item class="form">
-              <ion-input
-                type="password"
-                [(ngModel)]="user.password"
-                name="password"
-                placeholder="{{ 'login.password' | transloco }}"
-              ></ion-input>
+              <ion-input type="password" [(ngModel)]="user.password" name="password"
+                placeholder="{{ 'login.password' | transloco }}" required="true"></ion-input>
             </ion-item>
           </ion-list>
         </ion-col>
@@ -36,17 +34,14 @@
       <ion-grid>
         <ion-row>
           <ion-col class="signup-col">
-            <ion-button
-              type="submit"
-              class="submit-btn"
-              expand="block"
-              shape="round"
-            >
+            <ion-button type="submit" class="submit-btn" expand="block" shape="round">
               {{ 'buttons.login' | transloco }}
             </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
     </form>
+
   </div>
+
 </ion-content>
