@@ -14,14 +14,29 @@
     "title": "Ionic",
     "error": "LOGIN ERROR"
   },
+  "alert-error": {
+    "title": "Error",
+    "dismiss": "Close"
+  },
   "alert-login": {
     "title": "Error",
     "subtitle": "Wrong User and/or password",
+    "dismiss": "Close",
+    "success": "Successful access"
+  },
+  "alert-login-attempts": {
+    "title": "Error",
+    "subtitle": "Too many login failures, please wait a bit before trying again.",
     "dismiss": "Close"
   },
   "alert-home": {
     "title": "Error",
     "subtitle": "Error when updating the data",
+    "dismiss": "Close"
+  },
+  "alert-unauthorized": {
+    "title": "Error",
+    "subtitle": "Unauthorized, session expired",
     "dismiss": "Close"
   },
   "sampledatamanagement": {

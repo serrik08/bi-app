@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { TranslocoService } from '@ngneat/transloco';
 import { KpiService } from '../../services/kpi/kpi.service';
 import { AuthService } from '../../services/security/auth.service';
@@ -27,6 +28,7 @@ export class KpisPageComponent implements OnInit {
   };
   constructor(
     private auth: AuthService,
+    private alertCtrl: AlertController,
     private kpiService: KpiService,
     private translocoService: TranslocoService,
     private router: Router,
@@ -43,8 +45,12 @@ export class KpisPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
-          if (err.status = 403) {
+          if (err.status = 401) {
+            this.presentAlertUnauthorized();
             this.logout();
+          }
+          else {
+            this.presentAlertError();
           }
         }
       );
@@ -73,6 +79,32 @@ export class KpisPageComponent implements OnInit {
     this.auth.setAuthenticated(false);
     this.auth.setToken('');
     this.router.navigate(['']);
+  }
+
+  async presentAlertError(): Promise<any> {
+    const alertTranslations: any = {};
+    alertTranslations.header = this.translocoService.translate('alert-home.title');
+    alertTranslations.subHeader = this.translocoService.translate('alert-home.subtitle');
+    alertTranslations.dismiss = this.translocoService.translate('alert-home.dismiss');
+    const alert = await this.alertCtrl.create({
+      header: alertTranslations.header,
+      subHeader: alertTranslations.subHeader,
+      buttons: [alertTranslations.dismiss],
+    });
+    await alert.present();
+  }
+
+  async presentAlertUnauthorized(): Promise<any> {
+    const alertTranslations: any = {};
+    alertTranslations.header = this.translocoService.translate('alert-unauthorized.title');
+    alertTranslations.subHeader = this.translocoService.translate('alert-unauthorized.subtitle');
+    alertTranslations.dismiss = this.translocoService.translate('alert-unauthorized.dismiss');
+    const alert = await this.alertCtrl.create({
+      header: alertTranslations.header,
+      subHeader: alertTranslations.subHeader,
+      buttons: [alertTranslations.dismiss],
+    });
+    await alert.present();
   }
 
 }

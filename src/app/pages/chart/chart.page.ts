@@ -4,6 +4,7 @@ import { AuthService } from '../../services/security/auth.service';
 import { ChartService } from '../../services/chart/chart.service';
 import { Chart } from 'chart.js';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-page-chart',
@@ -24,6 +25,7 @@ export class ChartPageComponent implements OnInit {
   ]
   constructor(
     private auth: AuthService,
+    private alertCtrl: AlertController,
     private translocoService: TranslocoService,
     private activatedRoute: ActivatedRoute,
     private chartService: ChartService,
@@ -63,8 +65,12 @@ export class ChartPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
-          if (err.status = 403) {
+          if (err.status = 401) {
+            this.presentAlertUnauthorized();
             this.logout();
+          }
+          else {
+            this.presentAlertError();
           }
         }
       );
@@ -80,8 +86,12 @@ export class ChartPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
-          if (err.status = 403) {
+          if (err.status = 401) {
+            this.presentAlertUnauthorized();
             this.logout();
+          }
+          else {
+            this.presentAlertError();
           }
         }
       );
@@ -98,8 +108,12 @@ export class ChartPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
-          if (err.status = 403) {
+          if (err.status = 401) {
+            this.presentAlertUnauthorized();
             this.logout();
+          }
+          else {
+            this.presentAlertError();
           }
         }
       );
@@ -115,8 +129,12 @@ export class ChartPageComponent implements OnInit {
         },
         (err: any) => {
           console.log(err);
-          if (err.status = 403) {
+          if (err.status = 401) {
+            this.presentAlertUnauthorized();
             this.logout();
+          }
+          else {
+            this.presentAlertError();
           }
         }
       );
@@ -259,5 +277,31 @@ export class ChartPageComponent implements OnInit {
     this.auth.setAuthenticated(false);
     this.auth.setToken('');
     this.router.navigate(['']);
+  }
+
+  async presentAlertError(): Promise<any> {
+    const alertTranslations: any = {};
+    alertTranslations.header = this.translocoService.translate('alert-home.title');
+    alertTranslations.subHeader = this.translocoService.translate('alert-home.subtitle');
+    alertTranslations.dismiss = this.translocoService.translate('alert-home.dismiss');
+    const alert = await this.alertCtrl.create({
+      header: alertTranslations.header,
+      subHeader: alertTranslations.subHeader,
+      buttons: [alertTranslations.dismiss],
+    });
+    await alert.present();
+  }
+
+  async presentAlertUnauthorized(): Promise<any> {
+    const alertTranslations: any = {};
+    alertTranslations.header = this.translocoService.translate('alert-unauthorized.title');
+    alertTranslations.subHeader = this.translocoService.translate('alert-unauthorized.subtitle');
+    alertTranslations.dismiss = this.translocoService.translate('alert-unauthorized.dismiss');
+    const alert = await this.alertCtrl.create({
+      header: alertTranslations.header,
+      subHeader: alertTranslations.subHeader,
+      buttons: [alertTranslations.dismiss],
+    });
+    await alert.present();
   }
 }

@@ -17,14 +17,29 @@
     "EN": "English",
     "ES": "Spanish"
   },
+  "alert-error": {
+    "title": "Error",
+    "dismiss": "Cerrar"
+  },
   "alert-login": {
     "title": "Error",
-    "subtitle": "Error al actualizar los datos",
+    "subtitle": "Usuario y/o contraseña incorrectos",
+    "dismiss": "Cerrar",
+    "success": "Acceso exitoso"
+  },
+  "alert-login-attempts": {
+    "title": "Error",
+    "subtitle": "Demasiados fallos en el inicio de sesión, por favor, espere un poco antes de volver a intentarlo.",
     "dismiss": "Cerrar"
   },
   "alert-home": {
     "title": "Error",
-    "subtitle": "error when updating the data",
+    "subtitle": "Error al actualizar los datos",
+    "dismiss": "Cerrar"
+  },
+  "alert-unauthorized": {
+    "title": "Error",
+    "subtitle": "No autorizado, sesión expirada",
     "dismiss": "Cerrar"
   },
   "sampledatamanagement": {

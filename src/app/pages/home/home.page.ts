@@ -12,8 +12,8 @@ import { AuthService } from '../../services/security/auth.service';
 })
 export class HomePageComponent {
   user: { username: string };
-  qtyProjects : number;
-  qtyTasks : number;
+  qtyProjects: number;
+  qtyTasks: number;
   qtyEmployees: number;
   constructor(
     private router: Router,
@@ -25,19 +25,20 @@ export class HomePageComponent {
     this.user = { username: auth.getUsername() };
   }
 
-  updateForm(): void{
+  updateForm(): void {
     this.updateData();
   }
 
-  updateData(): void{
+  updateData(): void {
     this.projectService
-      .updateData({ 
+      .updateData({
         username: this.auth.getUsername(),
-        tokenOdoo: '3cc1f007-447c-4721-9cd9-6a0aa6eddc40' })
+        tokenOdoo: '3cc1f007-447c-4721-9cd9-6a0aa6eddc40'
+      })
       .subscribe(
-        (res: any) =>{
+        (res: any) => {
           if (!res.projects || !res.tasks || !res.users) {
-            this.presentAlert();
+            this.presentAlertError();
             return;
           }
           console.log(res);
@@ -45,48 +46,57 @@ export class HomePageComponent {
           this.qtyTasks = res.tasks;
           this.qtyEmployees = res.users;
         },
-        (err: any) =>{
+        (err: any) => {
           console.log(err);
-          if (err.status = 403) {
+          if (err.status = 401) {
+            this.presentAlertUnauthorized();
             this.logout();
           }
-          this.presentAlert();
+          else {
+            this.presentAlertError();
+          }
         });
   }
 
-  navigateProjectsPage(): void{
-    this.router.navigate(['projects']); 
+  navigateProjectsPage(): void {
+    this.router.navigate(['projects']);
   }
 
-  navigateEmployeesPage(): void{
-    this.router.navigate(['employees']); 
+  navigateEmployeesPage(): void {
+    this.router.navigate(['employees']);
   }
 
-  navigateChartsPage(): void{
-    this.router.navigate(['charts']); 
+  navigateChartsPage(): void {
+    this.router.navigate(['charts']);
   }
 
-  navigateKpisPage(): void{
-    this.router.navigate(['kpis']); 
+  navigateKpisPage(): void {
+    this.router.navigate(['kpis']);
   }
 
-  async presentAlert(): Promise<any> {
+  async presentAlertError(): Promise<any> {
     const alertTranslations: any = {};
-
     alertTranslations.header = this.translocoService.translate('alert-home.title');
-    alertTranslations.subHeader = this.translocoService.translate(
-      'alert-home.subtitle',
-    );
-    alertTranslations.dismiss = this.translocoService.translate(
-      'alert-home.dismiss',
-    );
-
+    alertTranslations.subHeader = this.translocoService.translate('alert-home.subtitle');
+    alertTranslations.dismiss = this.translocoService.translate('alert-home.dismiss');
     const alert = await this.alertCtrl.create({
       header: alertTranslations.header,
       subHeader: alertTranslations.subHeader,
       buttons: [alertTranslations.dismiss],
     });
+    await alert.present();
+  }
 
+  async presentAlertUnauthorized(): Promise<any> {
+    const alertTranslations: any = {};
+    alertTranslations.header = this.translocoService.translate('alert-unauthorized.title');
+    alertTranslations.subHeader = this.translocoService.translate('alert-unauthorized.subtitle');
+    alertTranslations.dismiss = this.translocoService.translate('alert-unauthorized.dismiss');
+    const alert = await this.alertCtrl.create({
+      header: alertTranslations.header,
+      subHeader: alertTranslations.subHeader,
+      buttons: [alertTranslations.dismiss],
+    });
     await alert.present();
   }
 

@@ -9,7 +9,7 @@
     </ion-card-header> 
     <ion-card-content>
       <ion-item button (click)="navigateProjectsPage()">{{ 'Projects' | transloco}}<ion-icon name="newspaper-outline" slot="start"></ion-icon><ion-badge color="tertiary" slot="end">{{qtyProjects}}</ion-badge></ion-item>
-      <ion-item >{{ 'Tasks' | transloco}}<ion-badge color="tertiary" slot="end">{{qtyTasks}}</ion-badge><ion-icon name="hammer-outline" slot="start"></ion-icon></ion-item>
+      <!-- <ion-item >{{ 'Tasks' | transloco}}<ion-badge color="tertiary" slot="end">{{qtyTasks}}</ion-badge><ion-icon name="hammer-outline" slot="start"></ion-icon></ion-item> -->
       <ion-item button (click)="navigateEmployeesPage()">{{ 'Employees' | transloco}}<ion-icon name="people-outline" slot="start"></ion-icon><ion-badge color="tertiary" slot="end">{{qtyEmployees}}</ion-badge></ion-item>
       <ion-item button (click)="navigateChartsPage()">{{ 'Charts' | transloco}}<ion-icon name="pie-chart-outline" slot="start"></ion-icon></ion-item>
       <ion-item button (click)="navigateKpisPage()">KPIs<ion-icon name="flame" slot="start"></ion-icon></ion-item>
