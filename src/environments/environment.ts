@@ -8,7 +8,7 @@ export const environment = {
   serviceIdERP: 1
 };
 
-export const SERVER_URL = 'http://localhost:8080/';
+export const SERVER_URL = 'http://localhost:3000/';
 
 /*
  * For easier debugging in development mode, you can import the following file
